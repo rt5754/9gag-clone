@@ -1,2 +1,30 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+//NAVBAR
+
+.nav-link {
+  margin-top: -30px;
+}
+
+//BODY
+.jumbo-home {
+  text-align: center;
+}
+
+.btn-signup {
+  margin-top: 10px;
+}
+
+.form-input {
+  overflow: auto;
+}
+
+.btn-full {
+  width: 100%;
+}
+//FOOTER
+
+footer {
+  border-top: 1px solid #eaeaea;
+}
