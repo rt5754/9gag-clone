@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: {with: VALID_EMAIL_REGEX}
   validates :password, presence: true, length: { minimum: 8, maximum: 30}
   has_secure_password
+  include Gravtastic
+  gravtastic
 end

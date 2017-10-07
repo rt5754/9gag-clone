@@ -14,24 +14,35 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#">Hot<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">New</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+        <li><a href="#"><%= link_to "Hot", hot_path, class: "nav-link" %>  <span class="sr-only">(current)</span></a></li>
+        <li><a href="#"><%= link_to "New", new_path, class: "nav-link" %></a></li>
+        <% if logged_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><%= link_to "Create Post", new_post_path %></a></li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+          <li><%= link_to 'Log out', logout_path, method: :delete %></li>
+
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Profile<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
+            <li><%= link_to "Edit your profile", edit_user_path(current_user) %></li>
+            <li><%= link_to "View your profile", user_path(current_user) %></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
           </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a> <%= link_to "Login", login_path, class: "nav-link" %> </a></li>
-        <li><a> <%= link_to "Sign Up", new_user_path, class: "nav-link" %> </a></li>
+          </li>
+        <% else %>
+          <li><a> <%= link_to "Login", login_path, class: "nav-link" %> </a></li>
+          <li><a> <%= link_to "Sign Up", new_user_path, class: "nav-link" %> </a></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

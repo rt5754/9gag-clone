@@ -1,0 +1,19 @@
+  <% obj.each do |post| %>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="well well-lg post-well">
+          <div class="article-title">
+            <h3><%= link_to post.title, post_path(post), class: "post-link" %></h3>
+          </div>
+          <div class="article-body">
+            <%= post.description %>
+            <div class="article-meta-details">
+              <small>
+              </small>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  <% end %>

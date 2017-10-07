@@ -23,6 +23,17 @@
 .btn-full {
   width: 100%;
 }
+
+.post-well {
+  padding-top: 0px;
+}
+
+.post-link {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 //FOOTER
 
 footer {

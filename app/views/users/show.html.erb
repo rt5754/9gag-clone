@@ -1,19 +1,14 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/messages' %>
+<div class="jumbotron jumbo-home">
+  <%= image_tag @user.gravatar_url, class: "img img-circle", width: "100px", height: "100px" %>
+  <h2><strong><%= @user.username %></strong></h2>
+  <small><%= @user.email %></small>
+  <h2>Your posts</h2>
+  <div>
+    <%= render 'posts/post', obj: @user_posts.reverse %>
+    <%= will_paginate @user_posts %>
+  </div>
+</div>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Edit', edit_user_path(@user) %> 
 <%= link_to 'Back', users_path %>

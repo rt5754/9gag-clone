@@ -1,29 +1,30 @@
 <%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    
+    <div class="col-md-6 col-md-offset-3">
+      <%= render 'shared/errors', obj: @post if @post.errors.any? %>
+      <div class="form-group form-input">
+        <div class="control-label col-md-3">
+          <%= f.label :title %>
+        </div>
+        <div class="col-md-9">
+          <%= f.text_field :title, class: "form-control", placeholder: "Title", autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group form-input">
+        <div class="control-label col-md-3">
+          <%= f.label :description %>
+        </div>
+        <div class="col-md-9">
+          <%= f.text_area :description, rows: "5", class: "form-control", placeholder: "eg. rudi@rapstudios.co.za" %>
+        </div>
+      </div>
+      <% hidden_field_tag :user_id, value: current_user %>
+      <div class="form-group form-input">
+        <div class="col-md-12">
+          <%= f.submit class: 'btn btn-primary btn-lg btn-full' %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    
+ 
 <% end %>

@@ -2,8 +2,14 @@ Rails.application.routes.draw do
   resources :posts
   resources :users
   root 'pages#home'
+  authenticated :user do
+    root :to => 'pages#hot', as: :user_root
+  end
+  get 'new', to: 'pages#new'
+  get 'hot', to: 'pages#hot'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
   delete 'logout', to: 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
