@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user_posts = current_user.posts.paginate(page: params[:page], per_page: 5)
+    @user_posts = current_user.posts.paginate(page: params[:page], per_page: 5) if @user.posts.any?
   end
 
   # GET /users/new

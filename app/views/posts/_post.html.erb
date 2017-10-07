@@ -1,18 +1,26 @@
   <% obj.each do |post| %>
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
-        <div class="well well-lg post-well">
-          <div class="article-title">
-            <h3><%= link_to post.title, post_path(post), class: "post-link" %></h3>
+        <div class="panel post-panel">
+          <div class="post-title">
+            <h4><%= link_to post.title, post_path(post), class: "post-link" %></h4>
           </div>
-          <div class="article-body">
+          <div class="post-body">
             <%= post.description %>
-            <div class="article-meta-details">
-              <small>
-              </small>
-            </div>
           </div>
-          
+          <div class="post-details">
+            <div class="col-md-12 post-actions">
+              <small> <%= post.weighted_score %> Points</small>
+            </div>
+            <div class="col-md-12 post-actions">
+                <%= link_to upvote_path(:post => post, :path => new_path), class: "btn btn-md", :method => :post do %>
+                  <span class="glyphicon glyphicon-arrow-up"></span>
+                <% end %>
+                <%= link_to downvote_path(:post => post, :path => new_path), class: "btn btn-md", :method => :post do %>
+                  <span class="glyphicon glyphicon-arrow-down"></span>
+                <% end %>
+            </div>  
+          </div>
         </div>
       </div>
     </div>

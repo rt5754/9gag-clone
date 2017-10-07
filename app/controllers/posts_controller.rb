@@ -29,6 +29,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.upvotes = 0
     set_user
     respond_to do |format|
       if @post.save
@@ -54,6 +55,36 @@ class PostsController < ApplicationController
       end
     end
   end
+  
+  def upvote
+    if logged_in?
+      @post = Post.find(params[:post])
+      @user = current_user
+      if @user.voted_up_on? @post
+        flash[:warning] = "You have already upvoted on that"
+      else
+        @user.likes @post
+      end
+    else
+      flash[:danger] = "You need to be logged in to do that"
+    end
+      redirect_to params[:path]
+  end
+  
+  def downvote
+    if logged_in?
+      @post = Post.find(params[:post])
+      @user = current_user
+      if @user.voted_down_on? @post
+        flash[:warning] = "You have already voted on that"
+      else
+        @user.dislikes @post
+      end
+    else
+      flash[:danger] = "You need to be logged in to do that"
+      redirect_to params[:path]
+    end
+  end
 
   # DELETE /posts/1
   # DELETE /posts/1.json
@@ -77,6 +108,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :user_id)
+      params.require(:post).permit(:title, :description, :user_id, :upvotes)
     end
 end

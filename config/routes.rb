@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   authenticated :user do
     root :to => 'pages#hot', as: :user_root
   end
+  post 'upvote', to: 'posts#upvote'
+  post 'downvote', to: 'posts#downvote'
   get 'new', to: 'pages#new'
   get 'hot', to: 'pages#hot'
   get 'login', to: 'sessions#new'

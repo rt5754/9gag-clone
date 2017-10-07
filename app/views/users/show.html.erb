@@ -5,8 +5,8 @@
   <small><%= @user.email %></small>
   <h2>Your posts</h2>
   <div>
-    <%= render 'posts/post', obj: @user_posts.reverse %>
-    <%= will_paginate @user_posts %>
+    <%= render 'posts/post', obj: @user_posts.reverse if @user.posts.any? %>
+    <%= will_paginate @user_posts if @user.posts.any? %>
   </div>
 </div>
 

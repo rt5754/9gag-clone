@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   has_secure_password
   include Gravtastic
   gravtastic
+  acts_as_voter
 end
