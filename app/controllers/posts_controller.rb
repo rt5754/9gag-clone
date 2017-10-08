@@ -58,7 +58,7 @@ class PostsController < ApplicationController
   
   def upvote
     if logged_in?
-      @post = Post.find(params[:post])
+      @post = Post.find(params[:post_id])
       @user = current_user
       if @user.voted_up_on? @post
         flash[:warning] = "You have already upvoted on that"
@@ -68,12 +68,12 @@ class PostsController < ApplicationController
     else
       flash[:danger] = "You need to be logged in to do that"
     end
-      redirect_to params[:path]
+    redirect_to params[:page], :page => params[:pagination_page]
   end
   
   def downvote
     if logged_in?
-      @post = Post.find(params[:post])
+      @post = Post.find(params[:post_id])
       @user = current_user
       if @user.voted_down_on? @post
         flash[:warning] = "You have already voted on that"
@@ -82,8 +82,8 @@ class PostsController < ApplicationController
       end
     else
       flash[:danger] = "You need to be logged in to do that"
-      redirect_to params[:path]
     end
+    redirect_to params[:page], :page => params[:pagination_page]
   end
 
   # DELETE /posts/1
@@ -108,6 +108,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :user_id, :upvotes)
+      params.require(:post).permit(:title, :user_id, :upvotes, :image)
     end
 end

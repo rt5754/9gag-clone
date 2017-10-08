@@ -6,19 +6,15 @@
             <h4><%= link_to post.title, post_path(post), class: "post-link" %></h4>
           </div>
           <div class="post-body">
-            <%= post.description %>
+            <%= image_tag post.image.url %>
           </div>
           <div class="post-details">
             <div class="col-md-12 post-actions">
-              <small> <%= post.weighted_score %> Points</small>
+              <small> <%= pluralize(post.weighted_score, "Point") %></small>
             </div>
             <div class="col-md-12 post-actions">
-                <%= link_to upvote_path(:post => post, :path => new_path), class: "btn btn-md", :method => :post do %>
-                  <span class="glyphicon glyphicon-arrow-up"></span>
-                <% end %>
-                <%= link_to downvote_path(:post => post, :path => new_path), class: "btn btn-md", :method => :post do %>
-                  <span class="glyphicon glyphicon-arrow-down"></span>
-                <% end %>
+                <%= upvote_link(current_user, post) %>
+                <%= downvote_link(current_user, post) %>
             </div>  
           </div>
         </div>

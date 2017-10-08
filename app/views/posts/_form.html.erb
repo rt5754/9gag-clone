@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+<%= form_for @post, url: posts_path, html: { multipart: true } do |f| %>
     
     <div class="col-md-6 col-md-offset-3">
       <%= render 'shared/errors', obj: @post if @post.errors.any? %>
@@ -12,10 +12,10 @@
       </div>
       <div class="form-group form-input">
         <div class="control-label col-md-3">
-          <%= f.label :description %>
+          <%= f.label "Upload File" %>
         </div>
         <div class="col-md-9">
-          <%= f.text_area :description, rows: "5", class: "form-control", placeholder: "eg. rudi@rapstudios.co.za" %>
+          <%= f.file_field :image %>
         </div>
       </div>
       <% hidden_field_tag :user_id, value: current_user %>
