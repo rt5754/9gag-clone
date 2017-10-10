@@ -6,6 +6,10 @@
   color: white;
 }
 
+body {
+  margin-top: 40px;
+}
+
 html {
   font-size: 20px;
 }
@@ -104,15 +108,18 @@ h6 {
 }
 
 .post-panel {
-  border: 1px solid black;
+  
 }
 
 .post-body {
-  padding: 20px;
+  padding: 0px;
+  clear: both;
 }
 
 .post-link {
   color: black;
+  margin-bottom: 2px;
+  float: left;
   &:hover {
     text-decoration: none;
   }
@@ -120,6 +127,7 @@ h6 {
 
 .post-details {
   border-top: 1px solid #eaeaea;
+  margin-left: -14px;
 }
 
 .post-panel {
@@ -128,6 +136,10 @@ h6 {
 }
 .post-actions {
   text-align: left !important;
+}
+
+.img-profile {
+  border: 2px solid black;
 }
 
 //FOOTER

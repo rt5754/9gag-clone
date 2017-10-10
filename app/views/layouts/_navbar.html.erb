@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
@@ -12,8 +12,9 @@
 
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class= "<%= yield(:hot_classes)%>"><%= link_to "Hot", hot_path %></li>
-        <li class= "<%= yield(:new_classes)%>"><%= link_to "New", new_path %></li>
+        <li class= "<%= getHotLinkClasses %>"><%= link_to "Hot", hot_path %></li>
+        <li class= "<%= getTrendingLinkClasses %>"><%= link_to "Trending", trending_path %></li>
+        <li class= "<%= getNewLinkClasses %>"><%= link_to "New", new_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>

@@ -1,15 +1,16 @@
 <%= render 'shared/messages' %>
-<div class="jumbotron jumbo-home">
-  <%= image_tag @user.gravatar_url, class: "img img-circle", width: "100px", height: "100px" %>
+<div class="jumbo-home" style="margin-top:40px">
+  <%= image_tag @user.gravatar_url, class: "img img-circle img-profile", width: "150px", height: "150px" %>
   <h2><strong><%= @user.username %></strong></h2>
   
-  <h2>Your posts</h2>
+  <h2>Posts</h2>
   <div>
-    <% @user_posts = @user_posts.reverse_order! %>
-    <%= render 'posts/post', obj: @user_posts if @user.posts.any? %>
-    <%= will_paginate @user_posts if @user.posts.any? %>
+    <% if @user.posts.any? %>
+      <% @user_posts = @user_posts.reverse_order! %>
+      <%= render 'posts/post', obj: @user_posts %>
+      <%= will_paginate @user_posts %>
+    <% else %>
+      <h5>User has not posted anything yet</h5>
+    <% end %>
   </div>
 </div>
-
-<%= link_to 'Edit', edit_user_path(@user) %> 
-<%= link_to 'Back', users_path %>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'upvote', to: 'posts#upvote'
   post 'downvote', to: 'posts#downvote'
   get 'new', to: 'pages#new'
+  get 'trending', to: 'pages#trending'
   get 'hot', to: 'pages#hot'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

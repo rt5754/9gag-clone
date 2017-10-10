@@ -1,10 +1,8 @@
 <% content_for :title, "New | CloneGag" %>
-<% content_for :new_classesclass, "Active" %>
 <%= render 'shared/messages' %>
 <h1 align="center">Newest posts</h1>
 
 <div class="container center">
   <%= render 'posts/post', obj: @posts %>
   <%= will_paginate @posts %>
-  
 </div>

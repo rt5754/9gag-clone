@@ -1,7 +1,16 @@
+<% content_for :title, "Home | CloneGag" %>
+
 <%= render 'shared/messages' %>
-<div class="jumbotron jumbo-home">
-  <h1>Welcome, stranger</h1>
-  <h2>Create an account - it's more fun!</h3>
-  <%= link_to "Create Account", new_user_path, class: "btn btn-lg btn-primary btn-signup" %>
-  <p style="margin-top: 10px">Already have an account? <%= link_to "Login", login_path %></p>
-</div>
+
+<% if logged_in? %>
+  <script type="text/javascript">
+    window.location.href="/hot" 
+  </script>
+<% else %>
+  <div class="jumbotron jumbo-home">
+    <h1>Welcome, stranger</h1>
+    <h2>Create an account - it's more fun!</h3>
+    <%= link_to "Create Account", new_user_path, class: "btn btn-lg btn-primary btn-signup" %>
+    <p style="margin-top: 10px">Already have an account? <%= link_to "Login", login_path %></p>
+  </div>
+<% end %>

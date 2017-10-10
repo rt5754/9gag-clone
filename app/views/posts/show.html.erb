@@ -1,19 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @post.image %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="panel post-panel">
+          <div class="post-title">
+            <h4><%= link_to @post.title, post_path(@post), class:"post-link" %></h4>
+          </div>
+          <div class="post-body">
+                  <div class="media">
+                      <img class="media-object" src="<%=  @post.image.url %>" alt="..." style="width: 100%">
+                  </div>
+          </div>
+          <div class="post-details">
+            <div class="col-md-12 post-actions">
+              <small> <%= pluralize(@post.weighted_score, "Point") %></small>
+            </div>
+            <div class="col-md-12 post-actions">
+                <%= upvote_link(current_user, @post) %>
+                <%= downvote_link(current_user, @post) %>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>

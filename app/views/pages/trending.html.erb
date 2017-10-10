@@ -1,0 +1,6 @@
+<% content_for :title, "Trending | CloneGag" %>
+
+<div class="container center">
+  <%= render 'posts/post', obj: @trending_posts %>
+  <%= will_paginate @trending_posts %>
+</div>

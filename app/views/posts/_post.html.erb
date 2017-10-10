@@ -3,10 +3,12 @@
       <div class="col-xs-8 col-xs-offset-2">
         <div class="panel post-panel">
           <div class="post-title">
-            <h4><%= link_to post.title, post_path(post), class: "post-link" %></h4>
+            <h5><%= link_to post.title, post_path(post), class: "post-link" %></h5>
           </div>
           <div class="post-body">
-            <%= image_tag post.image.url(:medium) %>
+                  <div class="media">
+                      <img class="media-object" src="<%=  post.image.url %>" alt="..." style="width: 100%">
+                  </div>
           </div>
           <div class="post-details">
             <div class="col-md-12 post-actions">
