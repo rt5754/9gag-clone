@@ -2,10 +2,11 @@
 <div class="jumbotron jumbo-home">
   <%= image_tag @user.gravatar_url, class: "img img-circle", width: "100px", height: "100px" %>
   <h2><strong><%= @user.username %></strong></h2>
-  <small><%= @user.email %></small>
+  
   <h2>Your posts</h2>
   <div>
-    <%= render 'posts/post', obj: @user_posts.reverse if @user.posts.any? %>
+    <% @user_posts = @user_posts.reverse_order! %>
+    <%= render 'posts/post', obj: @user_posts if @user.posts.any? %>
     <%= will_paginate @user_posts if @user.posts.any? %>
   </div>
 </div>

@@ -6,7 +6,7 @@
             <h4><%= link_to post.title, post_path(post), class: "post-link" %></h4>
           </div>
           <div class="post-body">
-            <%= image_tag post.image.url %>
+            <%= image_tag post.image.url(:medium) %>
           </div>
           <div class="post-details">
             <div class="col-md-12 post-actions">

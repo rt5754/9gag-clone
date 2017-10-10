@@ -12,29 +12,20 @@
 
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#"><%= link_to "Hot", hot_path, class: "nav-link" %>  <span class="sr-only">(current)</span></a></li>
-        <li><a href="#"><%= link_to "New", new_path, class: "nav-link" %></a></li>
-        <% if logged_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#"><%= link_to "Create Post", new_post_path %></a></li>
-            </ul>
-          </li>
-        <% end %>
+        <li class= "<%= yield(:hot_classes)%>"><%= link_to "Hot", hot_path %></li>
+        <li class= "<%= yield(:new_classes)%>"><%= link_to "New", new_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-          <li><%= link_to 'Log out', logout_path, method: :delete %></li>
-
+          <li><%= link_to "Post", new_post_path %></li>
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Profile<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Edit your profile", edit_user_path(current_user) %></li>
-            <li><%= link_to "View your profile", user_path(current_user) %></li>
-            <li><a href="#">Something else here</a></li>
+            <li><%= link_to "View profile", user_path(current_user) %></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><%= link_to "Edit profile", edit_user_path(current_user) %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to 'Log out', logout_path, method: :delete %></li>
           </ul>
           </li>
         <% else %>

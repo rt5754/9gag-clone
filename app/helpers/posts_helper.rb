@@ -1,6 +1,6 @@
 module PostsHelper
   def upvote_link(user, post)
-    if user.voted_up_on?(post)
+    if logged_in? && user.voted_up_on?(post)
       btn_class = "btn btn-md btn-success btn-vote disabled"
     else
       btn_class = "btn btn-md btn-vote"
@@ -12,7 +12,7 @@ module PostsHelper
   end
   
   def downvote_link(user, post)
-    if user.voted_down_on?(post)
+    if logged_in? && user.voted_down_on?(post)
       btn_class = "btn btn-md btn-danger btn-vote disabled"
     else
       btn_class = "btn btn-md btn-vote"
