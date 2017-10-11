@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :posts
   resources :users
+  resources :pics
   root 'pages#home'
   authenticated :user do
     root :to => 'pages#hot', as: :user_root

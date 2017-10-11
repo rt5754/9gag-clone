@@ -15,7 +15,8 @@
           <%= f.label "Upload File" %>
         </div>
         <div class="col-md-9">
-          <%= f.file_field :image%>
+          <%=  f.hidden_field :image_cache %>
+          <%= f.file_field :image %>
         </div>
       </div>
       <% hidden_field_tag :user_id, value: current_user %>

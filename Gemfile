@@ -14,8 +14,11 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'acts_as_votable', '~> 0.10.0'
 #Bootstrap
 gem 'bootstrap-sass'
+#Use for image hosting
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'dotenv-rails', groups: [:development, :test]
 
-gem "paperclip", "~> 5.0.0"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
