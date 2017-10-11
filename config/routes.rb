@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   post 'upvote', to: 'posts#upvote'
   post 'downvote', to: 'posts#downvote'
+  get 'u/:username', to: 'users#show', as: 'username'
   get 'new', to: 'pages#new'
   get 'trending', to: 'pages#trending'
   get 'hot', to: 'pages#hot'

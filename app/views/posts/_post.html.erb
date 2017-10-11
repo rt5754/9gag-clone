@@ -1,8 +1,9 @@
+<div class="post-container">
   <% obj.each do |post| %>
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
         <div class="panel post-panel">
-          <div class="post-title">
+          <div class="col-md-12 post-title">
             <h5><%= link_to post.title, post_path(post), class: "post-link" %></h5>
           </div>
           <div class="post-body">
@@ -23,3 +24,4 @@
       </div>
     </div>
   <% end %>
+</div>
