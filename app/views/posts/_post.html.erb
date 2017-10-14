@@ -13,7 +13,7 @@
           </div>
           <div class="post-details">
             <div class="col-md-12 post-actions">
-              <small> <%= pluralize(post.weighted_score, "Point") %></small>
+              <small> <%= pluralize(post.cached_weighted_score, "Point") %></small>
             </div>
             <div class="col-md-12 post-actions">
                 <%= upvote_link(current_user, post) %>
