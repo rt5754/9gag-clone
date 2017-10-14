@@ -15,3 +15,9 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+function showLoadingDiv() {
+  document.getElementById("loadingDiv").classList.remove("disabled");
+  console.log("S");
+}

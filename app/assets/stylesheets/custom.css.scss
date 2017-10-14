@@ -53,24 +53,27 @@ h6 {
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
   html { font-size: 15px; }
+  .container { width: 80% !important; padding: 0px }
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
   html { font-size: 17px; }
   .post-container { 
-    width: 50%; 
+    width: 80%; 
     margin: auto;
   }
+  .container { width: 70% !important; padding: 0px }
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
   html { font-size: 20pxrem; }  
   .post-container { 
-    width: 50%; 
+    width: 90%; 
     margin: auto;
   }
+  .container { width: 60% !important; padding: 0px }
 }
 
 

@@ -1,4 +1,6 @@
 <% content_for :title, "Hot | CloneGag" %>
+<%= render 'shared/messages' %>
+<h1 align="center">Hot posts</h1>
 
 <div class="container center">
   <%= render 'posts/post', obj: @hot_posts %>
